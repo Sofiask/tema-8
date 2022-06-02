@@ -2,16 +2,147 @@ body {
     background-color: #fbfbfb;
 }
 
-.menu {
+header {
+    width: 100vw;
+    height: 100vh;
+}
+
+.intro {
+    background-image: url(../assets/images/Mapsicle\ Map.svg);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 300;
+    left: 0;
+    top: 0;
+    transition: 1.5s;
+}
+
+.intro img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50px;
+}
+
+.logo-header {
+    position: absolute;
+    top: 20%;
+    left: 12%;
+    transform: translate(-1%, -1%);
+}
+
+.logo {
+    position: relative;
+    display: inline-block;
+    bottom: -20%;
+    opacity: 0;
+}
+
+.logo.active {
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 1s;
+}
+
+.logo.fade {
+    bottom: 150px;
+    opacity: 0;
+    transition: ease-in-out 1s;
+}
+
+
+#burgerElement {
+    width: 300px;
+    height: 100vh;
+    background-color: blanchedalmond;
+    position: absolute;
+    z-index: 1;
+}
+
+.burgerLogo {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    margin-bottom: 20px;
+}
+
+
+.ul {
+    padding-left: 50px;
+    list-style: none;
+    margin: 10px;
+    line-height: 250%;
+    font-size: 24px;
+    margin-top: 40px;
+}
+
+#showButton {
+    background-image: url(../assets/icons/Menu.svg);
+    background-color: #fbfbfb;
+    width: 36px;
+    height: 26px;
+    border: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+
+#hideButton {
+    background-image: url(../assets/icons/Exit.svg);
+    background-color: blanchedalmond;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    margin-left: 15px;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+
+
+#main {
+    width: 100%;
+    height: 100%;
+    background-color: #fbfbfb;
+    position: absolute;
+    z-index: 0;
+}
+
+.hidden {
+    left: -300px;
+}
+
+
+@keyframes easeIn {
+    from {
+        left: -300px;
+    }
+    to {
+        left: 0px;
+    }
+}
+
+@keyframes easeOut {
+    from {
+        left: 0px;
+    }
+    to {
+        left: -300px;
+    }
+}
+
+.menuBar {
     display: flex;
     justify-content: space-between;
-    z-index: 4;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
-.menu img {
-    margin: 20px;
+.menuBar img {
+    width: 60px;
+    height: 60px;
 }
-
 
 #map {
     width: 100vw;
@@ -19,93 +150,43 @@ body {
     background-color: rgb(192, 151, 231);
 }
 
-.error {
-    background-color: rgb(195, 0, 49);
-    color: white;
-    font-size: 48px;
-}
-
-.hide-error {
-    display: none;
-}
-
-.hamburger {
-    position: relative;
+.beach-place {
+    border: none;
     cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #F0BC16;
+    background-image: url(../assets/icons/beach.svg);
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
 }
 
-.navMenu {
-    position: absolute;
-    width: 90%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: #FFEACE;
-    color:black;
-    z-index: 400;
-    animation-name: easeIn; 
-    animation-duration: 0.5s;
-   
-}
-
-@keyframes easeIn {
-    from {
-        transform: translate(-400px);
-    }
-    to {
-        transform: translate(0px);
-    }    
-}
-
-
-.hiddenMenu {
-    display: none;
-    animation-name: ease-in-out;
-    animation-duration: 0.5s;
-}
-
-.close {
-    position: relative;
+.beach-place-active {
+    border: none;
     cursor: pointer;
+    border: 2px solid #F0BC16;
+    background-color: #FFF;
+    background-image: url(../assets/icons/beach.svg);
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
 }
 
-.navMenu ul {
-    list-style: none;
+.beach-place:before {
+    color: #FFF;
+    padding: 10px;
+    background-position: center;
+    background-size: 55%;
 }
 
-.navMenu ul li {
-    font-size: 24px;
-    margin: 40px;
-}
-
-.navMenu img {
-    margin-top: 30px;
-    margin-left: 15px;
-    max-width: 90px;
-}
-
-.menuBox {
-    display: flex;
-    justify-content: space-between;
-    width: 65%;
-    align-items: flex-start;
-
-}
-
-.hiddenLogo {
-    display: none;
-}
-
-.logo {
-    max-width: 70px;
-}
-
-.fake {
-    display: none;
-}
-
-.block {
-    display: block;
+.beach-place-active:before {
+    color: #F0BC16;
+    padding: 10px;
+    background-position: center;
+    background-size: 55%;
 }
 
 .marker {
@@ -123,10 +204,11 @@ body {
 .markerActive {
     display: flex;
     cursor: pointer;
-    width: 60px;
+    width: 40px;
     background-color: #FFF;
     border-radius: 20px;
     border: 2px solid #2A92BF;
+
 }
 
 .marker:before {
@@ -154,13 +236,10 @@ body {
 .weather {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between
     width: 96%;
-    margin: 0 2%;
+    margin: 1.5% 2%;
     gap: 10px;
-    position: absolute;
-    top: 175px;
-    z-index: 50;
 }
 
 .hiddenWeather {
@@ -170,7 +249,8 @@ body {
 .card {
     border: 2px solid white;
     border-radius: 5px;
-    padding: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
     background-color: #FFF;
     box-shadow: 0px 4px 4px #b8b8b8;
     display: flex;
@@ -182,39 +262,37 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     margin: 10px;
     margin-left: 5px;
 }
 
+.cardTicket {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+    background-color: #FFF;
+    box-shadow: 0px 4px 4px #b8b8b8;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 90%;
+}
+
+
 #weather {
-    background-image: url("../assets/icons/weather/partlycloudy_day.jpg");
+    background-image: url("../assets/icons/weather/cloudy.jpg");
     background-size: contain;
-    height: 50px;
-    width: 45px;
+    height: 40px;
+    width: 55px;
     background-repeat: no-repeat;
+    margin-right: 20px;
 }
 
 .card img {
-    height: 40px;
-    width: 40px;
-}
-
-.search {
-    width: 260px;
-    margin: 0 auto 10px auto;
-    background-color: #ECECEC;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 12px;
-    border: 2px solid #ECECEC;
-    border-radius: 20px;
-}
-
-.search img {
-    height: 20px;
-    width: 20px;
+    height: 37px;
+    width: 32px;
+    margin-right: 50px;
 }
 
 .bikeContainer {
@@ -224,7 +302,22 @@ body {
     border-radius: 5px;
     box-shadow: 0px 4px 4px #b8b8b8;
     position: absolute;
-    bottom: -50px;
+    bottom: 0px;
+    z-index: 100;
+    width: 96%;
+    background-color: #FFF;
+    margin: 0 2%;
+    align-items: center;
+}
+
+.beachContainer {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px #b8b8b8;
+    position: absolute;
+    bottom: 0px;
     z-index: 100;
     width: 96%;
     background-color: #FFF;
@@ -239,7 +332,7 @@ body {
 .bikeContainer img {
     height: fit-content;
     width: fit-content;
-    margin: 15px;
+    margin: 10px;
 }
 
 .top {
@@ -248,6 +341,16 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+}
+
+.topBeach {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .walk {
@@ -280,6 +383,20 @@ body {
     align-items: center;
 }
 
+.available-temperature {
+    display: flex;
+    flex-direction: row;
+    width: 250px;
+    align-items: center;
+}
+
+.available-temperature img {
+    width: 30px;
+    height: 30px;
+    margin-left: 35px;
+    margin-right: 25px;
+}
+
 .avilability {
     width: 90%;
     justify-content: space-between;
@@ -295,27 +412,4 @@ body {
     border-radius: 5px;
     border: none;
     margin-bottom: 20px;
-}
-
-.popUp {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 200px;
-    background-color: white;
-    position: absolute;
-    z-index: 300;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 4px #b8b8b8;
-    margin-top: 150px;
-    margin-left: 100px;
-}
-
-.popUp img {
-    max-width: 30px;
-}
-
-.popUpHide {
-    display: none;
 }

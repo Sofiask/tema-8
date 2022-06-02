@@ -11,22 +11,20 @@ export async function getWeather() {
     //Hente ut nåvärende time fra to karakterer og kombinerer dem
     const currentDate = new Date();
     const hoursNow = `${currentDate.getHours()}:00`;
-    const currentIndex = result.properties.timeseries.filter(serie => {
+    const currentIndex = result.properties.timeseries.find(serie => {
         return serie.time.includes(hoursNow);
     });
 
-    const currentTemperature = currentIndex[0].data.instant.details.air_temperature;
+    const currentTemperature = currentIndex.data.instant.details.air_temperature;
     //logger resultatet av koden
-    console.log(currentTemperature);
 
     const temperaturElement = document.querySelector('.p-temperature');
     temperaturElement.textContent = currentTemperature;
 
-    const sky_situation = currentIndex[0].data.next_1_hours.summary.symbol_code;
-    console.log(sky_situation)
+    const sky_situation = currentIndex.data.next_1_hours.summary.symbol_code;
     const weather_cont = document.querySelector('#weather');
 
-    weather_cont.getElementsByClassName.backgroundImage = `url(../assets/icons/weather/${sky_situation}.jpg)`
+    weather_cont.style.backgroundImage = `url(../assets/icons/weather/${sky_situation}.jpg)`
 };
 
 // promise = await

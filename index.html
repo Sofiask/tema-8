@@ -3,72 +3,68 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Temaoppgave 6 - Sofia Skärberg</title>
+        <title>Temaoppgave 8 - Sofia Skärberg</title>
         <meta name="description" content="This app is about my trip">
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/style.css">
         <link rel="stylesheet" href="./css/font.css">
-        <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css">
+        <link rel="stylesheet" href="./css/mapbox-gl-geocoder.css" type="text/css">
     </head>
 
     <body>
-        <header class="menu">
-            <img src="./assets/icons/Menu.svg" class="hamburger">
-            <nav class="navMenu hiddenMenu"> 
-                <div class="menuBox">
-                    <img src="./assets/icons/Exit.svg" class="close">
-                    <img src="./assets/icons/Logo.svg" class="close">  
-                </div>
-                    <ul>
-                        <li><h3>Sykkelparkering</h3></li>
-                        <li><h3>Badeplasser</h3></li>
-                        <li><h3>Planlegg en tur</h3></li>
-                    </ul>
-            </nav>
-
-            <h1>Byke</h1>
-            <img src="./assets/icons/Logo.svg" class="logo">
-            <div class="fake" tabindex="-1"></div>
-            
-        </header>
-
-        <div class="search">
-            <p>Søk destinasjon</p>
-            <img src="./assets/icons/Search icon.svg" alt="">
+    <div class="intro">
+        <div class="logo-header">
+            <span class="logo"><h1>Byke</h1></span>
+            <br>
+            <span class="logo"><h3>Din bysykkel</h3></span>
+            <span class="logo"><img src="./assets/images/animation_500_l2zzy97u.gif" alt=""></span>
         </div>
-        
+    </div> 
+    <nav id="burgerElement" class="hidden">
+        <div class="burgerLogo">
+            <button id="hideButton" alt="Close Menu"></button>
+            <h1 class="h1message">Hei Adriano!</h1>
+        </div>
+        <div class="cardTicket">
+            <h3>Månedsabonnement</h3>
+            <div class="card2">
+                <p>14 dager og 2 timer igjen</p> 
+            </div>
+        </div>
+            <ul class="ul">
+                <li><h3>Sykkelparkering</h3></li>
+                <li><h3>Badeplasser</h3></li>
+                <li><h3>Planlegg din tur</h3></li>
+            </ul>
+    </nav>
+    <div id="main">
+        <div class="menuBar">
+            <button id="showButton" alt="Menu button"></button>
+            <h1 class="h1logo">Byke</h1>
+            <img src="./assets/icons/Logo.svg" alt="">
+        </div>
         <div class="weather">
             <div class="card">
-                <h3>Været idag</h3>
+                <h4>Været idag - Oslo</h4>
                 <div class="card2">
                     <div id="weather"></div>
-                    <p class="p4">Oslo</p>
-                    <p class="p-temperature">°</p>
+                    <p class="p-temperature"></p>
                 </div>
             </div>
             
             <div class="card">
-                <h3>Vanntemperatur</h3>
+                <h4>Badetemperatur</h4>
                 <div class="card2">
                     <img src="./assets/icons/Water.svg" alt="">
-                    <p class="p4">Huk</p>
-                    <p class="p2">22°</p> 
+                    <p class="p-water-temperature"></p> 
                 </div>
             </div>
         </div>
-        <div class="popUp popUpHide">
-            <p>Bike station</p>
-            <img src="/assets/icons/NewBike.svg" alt="">
-        </div>
-        <div class="bikeContainer detailsHidden">
+        <div class="bikeContainer detailsHidden"> 
             <div class="top">
                 <img src="./assets/icons/ExitSmall.svg" alt="">
-                <div class="walk">
-                    <img src="./assets/icons/Walk.svg" alt="">
-                    <p>1 min</p> 
-                </div>
             </div> 
-
             <h2>title</h2>
             <p class="address">address</p>
             <div class="avilability">
@@ -81,15 +77,25 @@
                     <p>parkeringer</p>  
                 </div> 
             </div>
-           <!--  <button class="button">
-                <p>Lås opp sykkel</p>
-            </button>-->
-
-
+        </div>
+        <div class="beachContainer detailsHidden">
+            <div class="topBeach">
+                <img src="./assets/icons/ExitSmall.svg" class="close-beach" alt="">
+            </div> 
+            <h2>Badeplass</h2>
+            <p class="address">Navn</p>
+            <div class="avilability">
+                <div class="available-temperature">
+                    <img src="./assets/icons/Water.svg" alt="">
+                    <p>Badetemperatur</p>  
+                </div> 
+            </div>
         </div>
 
         <main id="map"></main>
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
         <script type="module" src="./js/app.js"></script>
+    </div>    
     </body>
 </html>

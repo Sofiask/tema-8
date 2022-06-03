@@ -23,7 +23,7 @@ export async function getWeather() {
 
     const sky_situation = currentIndex.data.next_1_hours.summary.symbol_code;
     const weather_cont = document.querySelector('#weather');
-
+    console.log(sky_situation)
     weather_cont.style.backgroundImage = `url(../assets/icons/weather/${sky_situation}.jpg)`
 };
 

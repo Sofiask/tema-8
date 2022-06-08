@@ -8,6 +8,7 @@ main();
 getWeather();
 getBeaches();
 
+// registrere service worker
 const registerServiceWorker = async () => {
   if ("serviceWorker" in navigator) {
     try {
@@ -74,7 +75,7 @@ async function getMap() {
     };
   });
 
-
+  // fra mapbox
   const geoStations = {
     type: "FeatureCollection",
     features: featuresBikes,
@@ -99,17 +100,18 @@ async function getMap() {
     })
   );
 
-  //lage markers for strender
+  //markers for strender
   beachLocations.features.forEach(beach => {
-    //lag en div for marker
+    // en div for marker
     const beachEl = document.createElement("div");
-    // legge til en class for strender 
+    // en class for strender 
     beachEl.classList.add("beach-place")
     // Add markers to the map.
     new mapboxgl.Marker(beachEl)
       .setLngLat(beach.geometry.coordinates)
       .addTo(map);
 
+      // popup badeplass
       beachEl.addEventListener("click", () => {
         const allBeaches = document.querySelectorAll(".beach-place");
         const popUpBeachEl = document.querySelector(".beachContainer");
@@ -149,7 +151,7 @@ async function getMap() {
 
     const close = document.querySelector(".close-beach");
 
-
+    // lukke popup
     close.addEventListener("click", () => {
 
       beachContainer.classList.add("detailsHidden");
@@ -165,7 +167,8 @@ async function getMap() {
         zoom: 15,
       });
     });
-
+    
+    //legge inn riktig data i popup
     const beachTitle = document.querySelector(".beachContainer h2");
     beachTitle.textContent = beach;
     const beachAddress = document.querySelector(".beachContainer .address");
@@ -243,6 +246,7 @@ function popUpMessage(station, address, bikes, docks, lat, lon, map) {
 
   const closeDetails = document.querySelector(".bikeContainer .top img");
 
+  //lukke popup
   closeDetails.addEventListener("click", () => {
     allMarkers.forEach((item) => {
       item.classList.remove("markerActive");
@@ -258,6 +262,7 @@ function popUpMessage(station, address, bikes, docks, lat, lon, map) {
     });
   });
 
+  // legge riktig data i popup
   const stationTitle = document.querySelector(".bikeContainer h2");
   stationTitle.textContent = station;
   const stationAddress = document.querySelector(".bikeContainer .address");

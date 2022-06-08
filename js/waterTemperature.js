@@ -6,9 +6,8 @@ export async function getBeaches () {
 
     // Hämta information för alla plasser
     const currentIndex = result;
-    // Hämta en specifik temperatur (index 0)
-    // const temperature = currentIndex[0].temperature;
-
+   
+    // lage average temperatur
     const averageTemp = (result.reduce((previous, current) => {
         return previous + current.temperature
     }, 0) / result.length).toFixed(1);
@@ -17,6 +16,7 @@ export async function getBeaches () {
     const temperaturElement = document.querySelector('.p-water-temperature');
     temperaturElement.textContent = averageTemp;
 
+    // data jag vil bruke fra API
     const resultFeatures = result.map(beach => {
         return {
             type: "Features",

@@ -2,6 +2,7 @@ let intro = document.querySelector('.intro');
 let logo = document.querySelector('logo-header');
 let logoSpan = document.querySelectorAll('.logo');
 
+// fant kode fra youtube - https://youtu.be/2ak37WrbSDg
 export function splash() {
 
     window.addEventListener('DOMContentLoaded', ()=>{
